@@ -7,9 +7,10 @@ import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "Contact", href: "#book" },
+  { label: "Services", href: "/#services" },
+  { label: "Work", href: "/#work" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact", href: "/#book" },
 ];
 
 export default function Navbar() {
@@ -77,7 +78,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
             <a
-              href="#book"
+              href="/#book"
               className="inline-flex items-center justify-center rounded-full border border-blue-500/30 dark:border-cyan-500/30 bg-blue-500/10 hover:bg-blue-500/20 dark:bg-cyan-500/10 dark:hover:bg-cyan-500/20 backdrop-blur-md px-5 py-2 text-sm font-semibold text-[#0073CF] dark:text-[#00C2CB] transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow-md active:translate-y-0"
             >
               Book a Call
@@ -154,7 +155,7 @@ export default function Navbar() {
               >
                 <ThemeToggle />
                 <a
-                  href="#book"
+                  href="/#book"
                   onClick={() => setMobileOpen(false)}
                   className="inline-flex items-center justify-center rounded-full border border-blue-500/30 dark:border-cyan-500/30 bg-blue-500/10 hover:bg-blue-500/20 dark:bg-cyan-500/10 dark:hover:bg-cyan-500/20 backdrop-blur-md px-8 py-3.5 text-base font-semibold text-[#0073CF] dark:text-[#00C2CB] transition-all duration-200 hover:-translate-y-0.5 shadow-lg active:translate-y-0"
                 >

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Mail, Phone } from "lucide-react";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -28,7 +29,12 @@ function LinkedinIcon({ className }: { className?: string }) {
 }
 
 const services = ["Web Platforms", "Mobile Apps", "AI Agents", "UI/UX Design"];
-const company = ["About", "Careers", "Blog", "Contact"];
+const company = [
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "/#services" },
+  { label: "Our Work", href: "/#work" },
+  { label: "Contact", href: "/#book" },
+];
 const legal = ["Privacy Policy", "Terms of Service"];
 
 const socials = [
@@ -60,8 +66,25 @@ export default function Footer() {
               />
             </div>
             <p className="mt-3 text-slate-400 text-sm leading-relaxed">
-              Premium product studio for ambitious startups.
+              Premium digital agency for startups &amp; growing businesses.
             </p>
+            {/* Contact Info */}
+            <div className="mt-5 space-y-2.5">
+              <a
+                href="mailto:joswebworks@gmail.com"
+                className="flex items-center gap-2.5 text-slate-400 hover:text-white text-sm transition-colors group"
+              >
+                <Mail className="w-4 h-4 text-[#00C2CB] flex-shrink-0" />
+                <span className="group-hover:text-[#00C2CB] transition-colors">joswebworks@gmail.com</span>
+              </a>
+              <a
+                href="tel:+919119446550"
+                className="flex items-center gap-2.5 text-slate-400 hover:text-white text-sm transition-colors group"
+              >
+                <Phone className="w-4 h-4 text-[#00C2CB] flex-shrink-0" />
+                <span className="group-hover:text-[#00C2CB] transition-colors">+91 9119446550</span>
+              </a>
+            </div>
             <div className="flex items-center gap-4 mt-5">
               {socials.map(({ icon: Icon, href, label }) => (
                 <a
@@ -101,13 +124,13 @@ export default function Footer() {
               Company
             </h4>
             <ul className="space-y-3">
-              {company.map((link) => (
-                <li key={link}>
+              {company.map(({ label, href }) => (
+                <li key={label}>
                   <a
-                    href="#"
+                    href={href}
                     className="text-slate-400 hover:text-white text-sm transition-colors"
                   >
-                    {link}
+                    {label}
                   </a>
                 </li>
               ))}
@@ -139,7 +162,7 @@ export default function Footer() {
       <div className="border-t border-slate-900 dark:border-neutral-900/40">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <p className="text-slate-500 text-sm text-center">
-            © 2025 JOS Webworks. All rights reserved.
+            © 2026 JOS Webworks. All rights reserved.
           </p>
         </div>
       </div>
