@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Award, TrendingUp, ChevronLeft, ChevronRight, Check, Eye, Heart } from "lucide-react";
+import { GraduationCap, TrendingUp, ChevronLeft, ChevronRight, Check, Eye, Heart } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -53,19 +53,18 @@ const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    icon: Award,
+    icon: GraduationCap,
     title: "Pune Public School",
     challenge:
-      "Manual certificate design, student verification, and graduation/achievement award distribution was slowing down school administration operations.",
+      "Teachers struggled with manual student management — tracking attendance, sharing timetables, and posting notices was time-consuming and disconnected, with no centralised system for students to stay updated.",
     solution:
-      "Developed a custom full-stack certificate portal for automated design canvas creation, secure cryptographic student verification, and bulk email distribution.",
-    result: "10,000+ certificates generated · 95% administration time reduction",
-    metricHighlight: "10K+ certs",
+      "Built a full-stack school management app with dual logins. Teachers can add students, manage timetables (auto-synced to students), mark attendance, and post daily notices & homework. Students can view their timetable, attendance records, notices, and personal profile — all in real time.",
+    result: "Seamless teacher–student communication · Real-time timetable & attendance sync",
+    metricHighlight: "Dual-role app",
     status: "completed",
     slides: [
-      { label: "Design Editor" },
-      { label: "Bulk Emailer" },
-      { label: "Audit Ledger" },
+      { label: "App Preview 1", image: "/pune public school app 1.jpeg", autoScroll: false },
+      { label: "App Preview 2", image: "/pune public school app 2.jpeg", autoScroll: false },
     ],
   },
 ];
@@ -152,57 +151,6 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
 
   // Render pre-designed HTML mockup previews if image is not supplied
   const renderSlidePreview = (studyIndex: number, slideIdx: number) => {
-    // Pune Public School - now at index 2
-    if (studyIndex === 2) {
-      if (slideIdx === 0) {
-        return (
-          <div className="w-full h-full bg-[#121215] p-3 text-[10px] flex flex-col justify-between text-white border border-neutral-800 rounded-lg">
-            <div className="border border-amber-500/20 bg-amber-500/[0.02] p-3 rounded-lg flex flex-col items-center justify-center flex-1 relative overflow-hidden">
-              {/* Badge watermark */}
-              <Award className="absolute w-20 h-20 text-amber-500/3 -right-4 -bottom-4 rotate-12" />
-              <div className="text-[7px] text-amber-500 font-bold uppercase tracking-widest mb-1">Certificate of Merit</div>
-              <div className="text-[10px] font-bold text-center border-b border-neutral-800 pb-1 mb-1 w-full max-w-[140px] truncate">Jane Smith</div>
-              <div className="text-[6px] text-neutral-500 text-center font-sans">For outstanding academic excellence - Pune Public School</div>
-            </div>
-          </div>
-        );
-      }
-      if (slideIdx === 1) {
-        return (
-          <div className="w-full h-full bg-[#0d0e12] p-4 text-[9px] text-neutral-400 flex flex-col justify-between">
-            <span className="text-[8px] font-semibold text-neutral-500 uppercase tracking-widest border-b border-neutral-800 pb-1">Automated Bulk Mailer</span>
-            <div className="flex-1 flex flex-col justify-center gap-1.5 font-sans">
-              <div className="flex items-center justify-between">
-                <span>Total recipients queue</span>
-                <span className="font-bold text-white">12,450</span>
-              </div>
-              <div className="w-full h-1.5 bg-neutral-800 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 w-[85%]" />
-              </div>
-              <div className="flex justify-between text-[7px] text-neutral-500">
-                <span>Sending cert 10,580...</span>
-                <span>85% complete</span>
-              </div>
-            </div>
-          </div>
-        );
-      }
-      return (
-        <div className="w-full h-full bg-[#0f0f12] p-4 text-[9px] text-neutral-400 flex flex-col justify-between font-mono">
-          <span className="text-[8px] font-sans font-semibold text-neutral-500 uppercase tracking-widest border-b border-neutral-800 pb-1">Cryptographic Ledger</span>
-          <div className="flex-1 flex flex-col justify-center gap-1">
-            <div className="flex items-center justify-between text-[8px]">
-              <span className="truncate max-w-[80px]">Hash: 0x82f4...e92a</span>
-              <span className="text-emerald-400 font-bold font-sans">Verified</span>
-            </div>
-            <div className="flex items-center justify-between text-[8px]">
-              <span className="truncate max-w-[80px]">Hash: 0xb509...08df</span>
-              <span className="text-emerald-400 font-bold font-sans">Verified</span>
-            </div>
-          </div>
-        </div>
-      );
-    }
     return null;
   };
 
@@ -278,7 +226,7 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3.5">
-          <div className="flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 dark:from-neutral-800 dark:to-neutral-900 border border-slate-800 dark:border-neutral-800 text-[#00C2CB]">
+          <div className="flex items-center justify-center w-11 h-11 rounded-full border-2 border-slate-200 dark:border-neutral-700 text-[#0073CF] dark:text-[#00C2CB]">
             <Icon className="w-5 h-5" />
           </div>
           <h3 className="text-lg font-bold text-slate-900 dark:text-white tracking-tight">

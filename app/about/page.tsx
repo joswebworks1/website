@@ -269,7 +269,7 @@ export default function AboutPage() {
                   variants={fadeUp}
                   className="flex flex-col items-center text-center group"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-blue-500/10 dark:bg-cyan-500/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200">
+                  <div className="w-12 h-12 rounded-full border-2 border-slate-200 dark:border-neutral-700 flex items-center justify-center mb-3 group-hover:border-[#0073CF] dark:group-hover:border-[#00C2CB] transition-colors duration-200">
                     <Icon className="w-5 h-5 text-[#0073CF] dark:text-[#00C2CB]" />
                   </div>
                   <div className="text-3xl font-extrabold font-display gradient-text">{value}</div>
@@ -382,7 +382,7 @@ export default function AboutPage() {
                         transition={{ delay: 0.3 + i * 0.1, type: "spring", stiffness: 120 }}
                         className="flex items-start gap-4 p-4 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-slate-100 dark:border-neutral-800/50 hover:border-[#0073CF]/30 dark:hover:border-[#00C2CB]/30 transition-colors duration-200"
                       >
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${iconBg}`}>
+                        <div className={`w-10 h-10 rounded-full border-2 flex items-center justify-center flex-shrink-0 border-slate-200 dark:border-neutral-700`}>
                           <Icon className={`w-5 h-5 ${iconColor}`} />
                         </div>
                         <div>
@@ -609,7 +609,7 @@ export default function AboutPage() {
                   href="mailto:joswebworks@gmail.com"
                   className="group flex items-center gap-5 p-5 rounded-2xl bg-white dark:bg-[#0d0d0d] border border-slate-200/60 dark:border-neutral-800/60 hover:border-[#0073CF]/40 dark:hover:border-[#00C2CB]/40 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 transition-colors duration-200">
+                  <div className="w-12 h-12 rounded-full border-2 border-blue-200 dark:border-neutral-700 flex items-center justify-center flex-shrink-0 group-hover:border-[#0073CF] dark:group-hover:border-[#00C2CB] transition-colors duration-200">
                     <Mail className="w-5 h-5 text-[#0073CF] dark:text-[#00C2CB]" />
                   </div>
                   <div>
@@ -628,7 +628,7 @@ export default function AboutPage() {
                   href="tel:+919119446550"
                   className="group flex items-center gap-5 p-5 rounded-2xl bg-white dark:bg-[#0d0d0d] border border-slate-200/60 dark:border-neutral-800/60 hover:border-[#0073CF]/40 dark:hover:border-[#00C2CB]/40 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 transition-colors duration-200">
+                  <div className="w-12 h-12 rounded-full border-2 border-blue-200 dark:border-neutral-700 flex items-center justify-center flex-shrink-0 group-hover:border-[#0073CF] dark:group-hover:border-[#00C2CB] transition-colors duration-200">
                     <Phone className="w-5 h-5 text-[#0073CF] dark:text-[#00C2CB]" />
                   </div>
                   <div>
@@ -649,7 +649,7 @@ export default function AboutPage() {
                   rel="noopener noreferrer"
                   className="group flex items-center gap-5 p-5 rounded-2xl bg-white dark:bg-[#0d0d0d] border border-slate-200/60 dark:border-neutral-800/60 hover:border-green-500/40 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors duration-200">
+                  <div className="w-12 h-12 rounded-full border-2 border-green-200 dark:border-neutral-700 flex items-center justify-center flex-shrink-0 group-hover:border-green-500 transition-colors duration-200">
                     <WhatsAppIcon className="w-5 h-5 text-green-600 dark:text-green-400" />
                   </div>
                   <div>
@@ -670,7 +670,7 @@ export default function AboutPage() {
                   rel="noopener noreferrer"
                   className="group flex items-center gap-5 p-5 rounded-2xl bg-white dark:bg-[#0d0d0d] border border-slate-200/60 dark:border-neutral-800/60 hover:border-pink-500/40 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-pink-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-500/20 transition-colors duration-200">
+                  <div className="w-12 h-12 rounded-full border-2 border-pink-200 dark:border-neutral-700 flex items-center justify-center flex-shrink-0 group-hover:border-pink-500 transition-colors duration-200">
                     <MessageCircle className="w-5 h-5 text-pink-500" />
                   </div>
                   <div>
