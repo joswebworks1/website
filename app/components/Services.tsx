@@ -213,12 +213,12 @@ function ServiceCard({
         <div>
           {/* Header row (Icon & Badge) */}
           <div className="flex items-center justify-between">
-            <div className={`flex h-12 w-12 items-center justify-center rounded-2xl transition-all duration-500 ${
+            <div className={`flex h-12 w-12 items-center justify-center rounded-full border-2 transition-all duration-500 ${
               isActive 
-                ? "bg-gradient-to-br from-cyan-500 to-blue-600 shadow-md shadow-blue-500/25" 
-                : "bg-slate-50 dark:bg-neutral-800/50 border border-slate-100 dark:border-neutral-800"
+                ? "border-[#00C2CB] text-[#00C2CB]" 
+                : "border-slate-200 dark:border-neutral-700 text-slate-400 dark:text-neutral-500"
             }`}>
-              <Icon className={`h-6 w-6 transition-colors duration-500 ${isActive ? "text-white" : "text-[#0073CF] dark:text-[#00C2CB]"}`} />
+              <Icon className="h-5 w-5" />
             </div>
             
             {isCenter && (

@@ -169,7 +169,7 @@ export default function FinalCTA() {
                 className="flex flex-col flex-1"
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-cyan-500/10 flex items-center justify-center text-[#0073CF] dark:text-[#00C2CB]">
+                  <div className="w-10 h-10 rounded-full border-2 border-slate-200 dark:border-neutral-700 flex items-center justify-center text-[#0073CF] dark:text-[#00C2CB]">
                     <CalendarIcon className="w-5 h-5" />
                   </div>
                   <div>
