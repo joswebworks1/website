@@ -1,8 +1,9 @@
 "use client";
 
-import { Calendar as CalendarIcon, Clock, ChevronRight, CheckCircle2, User, Mail, FileText, ArrowLeft } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, ChevronRight, CheckCircle2, User, Mail, FileText, ArrowLeft, Loader2, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { submitContact } from "../lib/api";
 
 // Generate next 10 business days starting from tomorrow
 const getNextBusinessDays = () => {
@@ -21,11 +22,13 @@ const getNextBusinessDays = () => {
 const defaultTimeSlots = ["10:00 AM", "11:30 AM", "2:00 PM", "3:30 PM", "5:00 PM"];
 
 export default function FinalCTA() {
-  const [step, setStep] = useState(1); // 1: Date & Time, 2: Details, 3: Success
+  const [step, setStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [formData, setFormData] = useState({ name: "", email: "", project: "" });
   const [errors, setErrors] = useState({ name: "", email: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const businessDays = getNextBusinessDays();
 
@@ -58,7 +61,7 @@ export default function FinalCTA() {
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     let valid = true;
     const newErrors = { name: "", email: "" };
@@ -81,7 +84,27 @@ export default function FinalCTA() {
       return;
     }
 
-    setStep(3);
+    setIsSubmitting(true);
+    setApiError(null);
+
+    try {
+      const result = await submitContact({
+        name: formData.name,
+        email: formData.email,
+        service: "Discovery Call",
+        message: `📅 Booking Request\nDate: ${selectedDate ? formatDate(selectedDate) : "—"}\nTime: ${selectedTime}\n\nProject Details:\n${formData.project || "Not provided"}`,
+      });
+
+      if (result.success) {
+        setStep(3);
+      } else {
+        setApiError(result.message || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setApiError("Could not connect to server. Please email us directly at joswebworks@gmail.com");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
@@ -90,6 +113,7 @@ export default function FinalCTA() {
     setSelectedTime(null);
     setFormData({ name: "", email: "", project: "" });
     setErrors({ name: "", email: "" });
+    setApiError(null);
   };
 
   return (
@@ -320,12 +344,28 @@ export default function FinalCTA() {
                     </div>
                   </div>
 
+                  {/* API Error */}
+                  {apiError && (
+                    <div className="flex items-start gap-2.5 p-3 rounded-xl bg-rose-500/8 border border-rose-500/20">
+                      <AlertCircle className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
+                      <p className="text-xs text-rose-400 leading-relaxed">{apiError}</p>
+                    </div>
+                  )}
+
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full py-4 mt-2 bg-[#0073CF] hover:bg-[#005fa3] text-white rounded-xl text-sm font-bold shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full py-4 mt-2 bg-[#0073CF] hover:bg-[#005fa3] disabled:opacity-60 disabled:cursor-not-allowed text-white rounded-xl text-sm font-bold shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer flex items-center justify-center gap-2"
                   >
-                    Confirm Booking
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      "Confirm Booking"
+                    )}
                   </button>
                 </form>
               </motion.div>
