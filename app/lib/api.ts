@@ -3,7 +3,7 @@
  * Centralised fetch wrapper for the JOS Webworks backend.
  */
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://website-two-woad-20.vercel.app";
 
 export interface ContactPayload {
   name: string;
