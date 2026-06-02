@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import {
@@ -60,10 +59,9 @@ const team = [
     name: "Om Narkhede",
     role: "Co-Founder & Lead Developer",
     bio: "Visionary developer and architect behind JOS Webworks' technical foundation. Om leads product engineering, ensuring every platform we ship is performant, scalable, and pixel-perfect.",
-    image: "/om.png",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    instagram: "https://instagram.com",
+    linkedin: "https://linkedin.com/in/omnarkhede",
+    github: "https://github.com/omn7",
+    instagram: "https://www.instagram.com/0x717_1/",
     gradient: "from-[#0073CF] to-[#00C2CB]",
     glowColor: "rgba(0,115,207,0.25)",
   },
@@ -71,10 +69,9 @@ const team = [
     name: "Jayesh Mahajan",
     role: "Co-Founder & Strategy Lead",
     bio: "The strategic mind of the trio, Jayesh bridges the gap between business goals and digital execution. He handles client relationships, growth strategy, and ensures every project delivers measurable impact.",
-    image: "/jayesh.png",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    instagram: "https://instagram.com",
+    linkedin: "https://www.linkedin.com/in/jayesh101/",
+    github: "https://github.com/Jayeshmahajan0",
+    instagram: "https://www.instagram.com/jayesh_jm123",
     gradient: "from-[#00C2CB] to-[#0050A0]",
     glowColor: "rgba(0,194,203,0.25)",
   },
@@ -82,10 +79,9 @@ const team = [
     name: "Shivam Murkute",
     role: "Co-Founder & Design Lead",
     bio: "Shivam crafts the visual identity and user experiences that make our clients' brands stand out. His design philosophy merges aesthetics with function — creating interfaces users love to interact with.",
-    image: "/shivam.png",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    instagram: "https://instagram.com",
+    linkedin: "https://www.linkedin.com/in/shivam-murkute-a89934336/",
+    github: "https://github.com/mshivam20",
+    instagram: "https://www.instagram.com/shivam_murkute2006/",
     gradient: "from-[#0050A0] to-[#0073CF]",
     glowColor: "rgba(0,80,160,0.25)",
   },
@@ -426,7 +422,7 @@ export default function AboutPage() {
 
             {/* Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {team.map(({ name, role, bio, image, linkedin, github, instagram, gradient, glowColor }, i) => (
+              {team.map(({ name, role, bio, linkedin, github, instagram, gradient, glowColor }, i) => (
                 <motion.div
                   key={name}
                   initial={{ opacity: 0, y: 40 }}
@@ -440,17 +436,6 @@ export default function AboutPage() {
                   <div className={`h-1.5 w-full bg-gradient-to-r ${gradient}`} />
 
                   <div className="relative pt-8 pb-10 px-6 flex flex-col items-center">
-                    {/* Avatar */}
-                    <div className="relative w-28 h-28 rounded-full overflow-hidden ring-4 ring-white dark:ring-[#0d0d0d] ring-offset-2 ring-offset-white dark:ring-offset-[#0d0d0d] shadow-xl">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-20 z-10`} />
-                      <Image
-                        src={image}
-                        alt={name}
-                        fill
-                        className="object-cover"
-                        sizes="112px"
-                      />
-                    </div>
 
                     {/* Name & Role */}
                     <h3 className="mt-5 text-xl font-extrabold font-display text-slate-900 dark:text-white text-center">
