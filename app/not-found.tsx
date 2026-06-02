@@ -11,7 +11,7 @@ const fadeUp = {
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 120, damping: 18, delay },
+    transition: { type: "spring" as const, stiffness: 120, damping: 18, delay },
   }),
 };
 
